@@ -27,127 +27,166 @@ namespace ClubDeportivo.Forms
             InitializeComponent();
             ConfigurarFormulario();
         }
-                
+
         private void ConfigurarFormulario()
-        {            
+        {
             this.Text = "Club Deportivo – Acceso al sistema";
-            this.Size = new Size(480, 420);
+            this.Size = new Size(500, 520);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimumSize = new Size(480, 480);
             this.BackColor = Color.FromArgb(240, 242, 245);
             this.Font = new Font("Segoe UI", 9f);
-                        
+
             panelCentral = new Panel
             {
-                Size = new Size(360, 310),
-                Location = new Point(60, 50),
+                Dock = DockStyle.Fill,
+                Padding = new Padding(30),
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.FixedSingle
             };
-            this.Controls.Add(panelCentral);
-                        
+
+            var mainLayout = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 8,
+                BackColor = Color.Transparent
+            };
+
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 35));
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 25));
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 10));
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+
             lblTitulo = new Label
             {
                 Text = "🏟  CLUB DEPORTIVO",
                 Font = new Font("Segoe UI", 14f, FontStyle.Bold),
                 ForeColor = Color.FromArgb(30, 90, 160),
-                Location = new Point(40, 20),
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Left | AnchorStyles.Bottom
             };
-            panelCentral.Controls.Add(lblTitulo);
+            mainLayout.Controls.Add(lblTitulo, 0, 0);
 
             lblSubtitulo = new Label
             {
                 Text = "Sistema de Gestión",
                 Font = new Font("Segoe UI", 9f, FontStyle.Italic),
                 ForeColor = Color.Gray,
-                Location = new Point(40, 50),
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Left | AnchorStyles.Top
             };
-            panelCentral.Controls.Add(lblSubtitulo);
-                        
+            mainLayout.Controls.Add(lblSubtitulo, 0, 1);
+
             var sep = new Label
             {
                 BorderStyle = BorderStyle.Fixed3D,
-                Size = new Size(280, 2),
-                Location = new Point(40, 75)
+                Dock = DockStyle.Top,
+                Height = 2
             };
-            panelCentral.Controls.Add(sep);
-            
+            mainLayout.Controls.Add(sep, 0, 2);
+
             lblUsuario = new Label
             {
                 Text = "Usuario:",
-                Location = new Point(40, 95),
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Left | AnchorStyles.Bottom
             };
-            panelCentral.Controls.Add(lblUsuario);
+            mainLayout.Controls.Add(lblUsuario, 0, 3);
 
             txtUsuario = new TextBox
             {
-                Size = new Size(280, 30),
-                Location = new Point(40, 115),
-                Font = new Font("Segoe UI", 10f)
+                Font = new Font("Segoe UI", 10f),
+                Dock = DockStyle.Top,
+                Height = 30
             };
-            panelCentral.Controls.Add(txtUsuario);
-            
+            mainLayout.Controls.Add(txtUsuario, 0, 4);
+
             lblContrasena = new Label
             {
                 Text = "Contraseña:",
-                Location = new Point(40, 155),
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Left | AnchorStyles.Bottom
             };
-            panelCentral.Controls.Add(lblContrasena);
+            mainLayout.Controls.Add(lblContrasena, 0, 5);
 
             txtContrasena = new TextBox
             {
-                Size = new Size(280, 30),
-                Location = new Point(40, 175),
+                Font = new Font("Segoe UI", 10f),
                 PasswordChar = '●',
-                Font = new Font("Segoe UI", 10f)
+                Dock = DockStyle.Top,
+                Height = 30
             };
-            panelCentral.Controls.Add(txtContrasena);
-            
+            mainLayout.Controls.Add(txtContrasena, 0, 6);
+
+            var panelInferior = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 2,
+                RowCount = 2,
+                BackColor = Color.Transparent
+            };
+
+            panelInferior.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            panelInferior.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            panelInferior.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+            panelInferior.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+
             lblError = new Label
             {
                 Text = "",
                 ForeColor = Color.Red,
-                Location = new Point(40, 210),
-                Size = new Size(280, 20),
-                Font = new Font("Segoe UI", 8.5f)
+                Font = new Font("Segoe UI", 8.5f),
+                AutoSize = false,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Padding = new Padding(0, 10, 0, 0)
             };
-            panelCentral.Controls.Add(lblError);
+            panelInferior.Controls.Add(lblError, 0, 0);
+            panelInferior.SetColumnSpan(lblError, 2);
 
             btnIngresar = new Button
             {
                 Text = "Ingresar",
-                Size = new Size(130, 40),
-                Location = new Point(40, 240),
                 BackColor = Color.FromArgb(30, 90, 160),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Segoe UI", 10f, FontStyle.Bold),
-                Cursor = Cursors.Hand
+                Cursor = Cursors.Hand,
+                Dock = DockStyle.Fill,
+                Margin = new Padding(0, 5, 10, 5)
             };
             btnIngresar.FlatAppearance.BorderSize = 0;
             btnIngresar.Click += BtnIngresar_Click;
-            panelCentral.Controls.Add(btnIngresar);
-            
+            panelInferior.Controls.Add(btnIngresar, 0, 1);
+
             btnSalir = new Button
             {
                 Text = "Salir",
-                Size = new Size(110, 40),
-                Location = new Point(190, 240),
                 BackColor = Color.FromArgb(210, 50, 50),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Segoe UI", 10f),
-                Cursor = Cursors.Hand
+                Cursor = Cursors.Hand,
+                Dock = DockStyle.Fill,
+                Margin = new Padding(10, 5, 0, 5)
             };
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.Click += (s, e) => Application.Exit();
-            panelCentral.Controls.Add(btnSalir);
-           
+            panelInferior.Controls.Add(btnSalir, 1, 1);
+
+            mainLayout.Controls.Add(panelInferior, 0, 7);
+
+            panelCentral.Controls.Add(mainLayout);
+            this.Controls.Add(panelCentral);
+
+            // Eventos de teclado
             txtContrasena.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter) BtnIngresar_Click(s, e);
@@ -156,7 +195,7 @@ namespace ClubDeportivo.Forms
             {
                 if (e.KeyCode == Keys.Enter) txtContrasena.Focus();
             };
-                        
+
             this.ActiveControl = txtUsuario;
         }
 
