@@ -163,13 +163,13 @@ namespace ClubDeportivo.Forms
         private void AbrirAltaSocio()
         {
             using var frm = new FrmAltaSocio();
-            frm.ShowDialog(this);
+            frm.ShowDialog(this);            
         }
 
         private void AbrirListaSocios()
         {
             using var frm = new FrmListaSocios();
-            frm.ShowDialog(this);
+            frm.ShowDialog(this);            
         }
 
         private void AbrirVencimientos()
