@@ -315,8 +315,25 @@ namespace ClubDeportivo.Forms
 
                 if (resultado.StartsWith("OK"))
                 {
-                    MessageBox.Show($"✅ {resultado}", "Pago registrado",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Intentar obtener el nuevo vencimiento del mensaje del SP (ej: "OK - Nuevo vencimiento: 15/07/2026")
+                    DateTime? nv = null;
+                    if (resultado.Contains(":"))
+                    {
+                        string fechaStr = resultado.Split(':')[1].Trim();
+                        if (DateTime.TryParse(fechaStr, out DateTime d)) nv = d;
+                    }
+
+                    // Mostrar recibo
+                    using var recibo = new FrmReciboSocio(
+                        _socioActual.NombreCompleto,
+                        _socioActual.NumeroSocio,
+                        importe,
+                        medio == "TarjetaCredito" ? "Tarjeta de Crédito" : "Efectivo",
+                        DateTime.Now,
+                        nv
+                    );
+                    recibo.ShowDialog(this);
+
                     LimpiarDatosSocio();
                     txtBuscar.Clear();
                     txtImporte.Clear();
