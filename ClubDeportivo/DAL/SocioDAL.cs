@@ -5,17 +5,17 @@ using MySql.Data.MySqlClient;
 
 
 namespace ClubDeportivo.DAL
-{    
+{
     /// Data Access Layer para operaciones relacionadas con Socios.
-    /// Usa Stored Procedures definidos en ClubDeportivo_DB.sql    
+    /// Usa Stored Procedures definidos en ClubDeportivo_DB.sql
     public class SocioDAL
     {
         // ──────────────────────────────────────────────────────────────
         //  ALTA DE SOCIO
         // ──────────────────────────────────────────────────────────────
-                
+
         /// Registra un nuevo socio llamando a sp_AltaSocio.
-        /// Devuelve true si tuvo éxito; mensaje con resultado/error.        
+        /// Devuelve true si tuvo éxito; mensaje con resultado/error.
         public bool AltaSocio(
             Socio socio,
             decimal importeCuota,
