@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace ClubDeportivo.Forms
-{    
+{
     /// Formulario para registrar un nuevo socio del club.
-    /// Valida DNI único, apto físico obligatorio, y genera carnet automáticamente.    
+    /// Valida DNI único, apto físico obligatorio, y genera carnet automáticamente.
     public partial class FrmAltaSocio : Form
     {
         private readonly SocioDAL _socioDAL = new SocioDAL();
@@ -119,12 +119,11 @@ namespace ClubDeportivo.Forms
             AgregarLabel(grpDatosPersonales, "Dirección", 15, 190, out lblDireccion);
             txtDireccion = AgregarTextBox(grpDatosPersonales, 15, 210, 625);
 
-            // ── GroupBox Datos de Ingreso ──────────────────────────s            
+            // ── GroupBox Datos de Ingreso ──────────────────────────s
             grpDatosIngreso = new GroupBox
             {
                 Text = "Datos de Ingreso al Club",
                 Location = new Point(15, 320),
-                //Size = new Size(655, 115),
                 Size = new Size(655, 135),
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 ForeColor = Color.FromArgb(30, 90, 160)
@@ -151,7 +150,6 @@ namespace ClubDeportivo.Forms
             cmbMedioPago = new ComboBox
             {
                 Size = new Size(170, 30),
-                //Location = new Point(190, 85),
                 Location = new Point(220, 85),
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 Font = new Font("Segoe UI", 9.5f),
@@ -162,7 +160,7 @@ namespace ClubDeportivo.Forms
             grpDatosIngreso.Controls.Add(cmbMedioPago);
 
             // Cantidad de cuotas
-            AgregarLabel(grpDatosIngreso, "Cuotas", 430, 65, out lblCantCuotas);            
+            AgregarLabel(grpDatosIngreso, "Cuotas", 430, 65, out lblCantCuotas);
             cmbCantCuotas = new ComboBox
             {
                 Size = new Size(70, 30),
@@ -196,7 +194,7 @@ namespace ClubDeportivo.Forms
             // ── Botones ────────────────────────────────────────────
             btnGuardar = CrearBoton("Guardar", Color.FromArgb(30, 130, 70), new Point(360, 490));
             btnLimpiar = CrearBoton("Limpiar", Color.FromArgb(100, 110, 120), new Point(520, 490));
-            btnCancelar = CrearBoton("Cancelar", Color.FromArgb(190, 50, 50), new Point(200, 490));            
+            btnCancelar = CrearBoton("Cancelar", Color.FromArgb(190, 50, 50), new Point(200, 490));
 
             btnGuardar.Click += BtnGuardar_Click;
             btnLimpiar.Click += (s, e) => LimpiarFormulario();
@@ -253,7 +251,7 @@ namespace ClubDeportivo.Forms
             btn.FlatAppearance.BorderSize = 0;
 
             return btn;
-        }        
+        }
 
         // ── Verificar DNI ─────────────────────────────────────────────
         private void BtnVerificarDNI_Click(object sender, EventArgs e)
@@ -302,13 +300,18 @@ namespace ClubDeportivo.Forms
 
                 if (ok)
                 {
-                    MessageBox.Show(
-                        $"✅ Socio registrado exitosamente.\n\n" +
-                        $"Número de socio : {numeroSocio}\n" +
-                        $"Número de carnet: {numeroCarnet}",
-                        "Alta exitosa",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    // Mostrar recibo/comprobante de alta
+                    using var recibo = new FrmReciboAltaSocio(
+                        $"{socio.Apellido}, {socio.Nombre}",
+                        socio.DNI,
+                        numeroSocio,
+                        numeroCarnet,
+                        DateTime.Now,
+                        importe,
+                        cmbMedioPago.SelectedItem?.ToString() ?? "Efectivo"
+                    );
+                    recibo.ShowDialog(this);
+
                     LimpiarFormulario();
                 }
                 else
