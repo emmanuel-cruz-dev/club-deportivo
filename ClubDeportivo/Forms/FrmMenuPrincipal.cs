@@ -3,9 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace ClubDeportivo.Forms
-{    
+{
     /// Menú principal del sistema.
-    /// Recibe el nombre del usuario logueado y centraliza la navegación.    
     public partial class FrmMenuPrincipal : Form
     {
         private readonly string _usuarioNombre;
@@ -49,10 +48,12 @@ namespace ClubDeportivo.Forms
             mnuNoSocios.DropDownItems.Add("Nuevo no socio", null, (s, e) => MessageBox.Show("Próximamente", "Info"));
 
             var mnuCobros = new ToolStripMenuItem("💰 Cobros") { ForeColor = Color.White };
-            mnuCobros.DropDownItems.Add("Cobrar cuota", null, (s, e) => MessageBox.Show("Próximamente", "Info"));
+            mnuCobros.DropDownItems.Add("Cobrar cuota", null, (s, e) => AbrirCobrarCuota());
             mnuCobros.DropDownItems.Add("Cobrar actividad", null, (s, e) => MessageBox.Show("Próximamente", "Info"));
 
             var mnuSistema = new ToolStripMenuItem("⚙ Sistema") { ForeColor = Color.White };
+            mnuSistema.DropDownItems.Add("Ejecutar Pruebas", null, (s, e) => EjecutarPruebas());
+            mnuSistema.DropDownItems.Add(new ToolStripSeparator());
             mnuSistema.DropDownItems.Add("Salir", null, (s, e) => Salir());
 
             menuStrip.Items.AddRange(new ToolStripItem[]
@@ -85,7 +86,7 @@ namespace ClubDeportivo.Forms
                 Font = new Font("Segoe UI", 16f, FontStyle.Bold),
                 ForeColor = Color.White,
                 AutoSize = true,
-                Anchor = AnchorStyles.Left | AnchorStyles.Bottom,                
+                Anchor = AnchorStyles.Left | AnchorStyles.Bottom,
             };
             lblFecha = new Label
             {
@@ -94,8 +95,8 @@ namespace ClubDeportivo.Forms
                 Font = new Font("Segoe UI", 9f, FontStyle.Italic),
                 ForeColor = Color.FromArgb(180, 210, 255),
                 AutoSize = true,
-                Anchor = AnchorStyles.Left | AnchorStyles.Top,              
-            };            
+                Anchor = AnchorStyles.Left | AnchorStyles.Top,
+            };
             layoutBienvenida.Controls.Add(lblBienvenida, 0, 0);
             layoutBienvenida.Controls.Add(lblFecha, 0, 1);
             panelBienvenida.Controls.Add(layoutBienvenida);
@@ -119,8 +120,8 @@ namespace ClubDeportivo.Forms
             tablaBotones.Controls.Add(CrearBoton("➕  Nuevo Socio", Color.FromArgb(30, 130, 70), AbrirAltaSocio), 0, 0);
             tablaBotones.Controls.Add(CrearBoton("📋  Listar Socios", Color.FromArgb(30, 90, 160), AbrirListaSocios), 1, 0);
             tablaBotones.Controls.Add(CrearBoton("⏰  Vencimientos", Color.FromArgb(180, 100, 10), AbrirVencimientos), 2, 0);
-            tablaBotones.Controls.Add(CrearBoton("💳  Cobrar Cuota", Color.FromArgb(110, 40, 160), () => MessageBox.Show("Próximamente", "Info")), 0, 1);
-            tablaBotones.Controls.Add(CrearBoton("🙋  No Socios", Color.FromArgb(60, 120, 130), () => MessageBox.Show("Próximamente", "Info")), 1, 1);
+            tablaBotones.Controls.Add(CrearBoton("💳  Cobrar Cuota", Color.FromArgb(110, 40, 160), AbrirCobrarCuota), 0, 1);
+            tablaBotones.Controls.Add(CrearBoton("🙋  No Socios", Color.FromArgb(60, 120, 130), AbrirAltaNoSocio), 1, 1);
             tablaBotones.Controls.Add(CrearBoton("🚪  Salir", Color.FromArgb(190, 50, 50), Salir), 2, 1);
 
             this.Controls.Add(tablaBotones);
@@ -163,18 +164,36 @@ namespace ClubDeportivo.Forms
         private void AbrirAltaSocio()
         {
             using var frm = new FrmAltaSocio();
-            frm.ShowDialog(this);            
+            frm.ShowDialog(this);
         }
 
         private void AbrirListaSocios()
         {
             using var frm = new FrmListaSocios();
-            frm.ShowDialog(this);            
+            frm.ShowDialog(this);
         }
 
         private void AbrirVencimientos()
         {
             using var frm = new FrmVencimientos();
+            frm.ShowDialog(this);
+        }
+
+        private void AbrirAltaNoSocio()
+        {
+            using var frm = new FrmAltaNoSocio();
+            frm.ShowDialog(this);
+        }
+
+        private void AbrirCobrarCuota()
+        {
+            using var frm = new FrmCobrarCuota();
+            frm.ShowDialog(this);
+        }
+
+        private void EjecutarPruebas()
+        {
+            using var frm = new FrmPruebas();
             frm.ShowDialog(this);
         }
 
