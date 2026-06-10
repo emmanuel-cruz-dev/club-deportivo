@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="9.7.0" />
+    <PackageReference Include="PdfSharp" Version="6.1.1" />
   </ItemGroup>
 
 </Project>
