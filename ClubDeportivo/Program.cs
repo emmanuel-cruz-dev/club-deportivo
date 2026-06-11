@@ -1,4 +1,3 @@
-using ClubDeportivo.Data;
 using ClubDeportivo.Forms;
 
 namespace ClubDeportivo
@@ -11,17 +10,13 @@ namespace ClubDeportivo
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            if (!Conexion.Instancia.ProbarConexion(out string msg))
+
+            // Mostrar el formulario de configuración de conexión
+            using var frmConexion = new FrmConexion();
+            if (frmConexion.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
-                MessageBox.Show(
-                    $"No se pudo conectar a la base de datos.\n\n{msg}\n\n" +
-                    "Verificá que MySQL esté corriendo y que los datos en Conexion.cs sean correctos.",
-                    "Error de conexión",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                // El usuario canceló o no pudo conectar → cerrar la aplicación
                 return;
             }
 
