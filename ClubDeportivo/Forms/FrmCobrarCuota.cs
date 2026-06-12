@@ -42,7 +42,7 @@ namespace ClubDeportivo.Forms
         private void ConfigurarFormulario()
         {
             this.Text = "Cobro de Cuota Mensual";
-            this.Size = new Size(680, 520);
+            this.Size = new Size(710, 560);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -64,7 +64,7 @@ namespace ClubDeportivo.Forms
             {
                 Text = "Buscar Socio",
                 Location = new Point(15, 56),
-                Size = new Size(635, 68),
+                Size = new Size(660, 68),
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 ForeColor = Color.FromArgb(110, 40, 160)
             };
@@ -76,7 +76,7 @@ namespace ClubDeportivo.Forms
             txtBuscar = new TextBox
             {
                 Location = new Point(250, 21),
-                Size = new Size(260, 24),
+                Size = new Size(250, 24),
                 Font = new Font("Segoe UI", 10f)
             };
             txtBuscar.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) BtnBuscar_Click(s, e); };
@@ -85,8 +85,8 @@ namespace ClubDeportivo.Forms
             btnBuscar = new Button
             {
                 Text = "🔍 Buscar",
-                Size = new Size(100, 36),
-                Location = new Point(520, 20),
+                Size = new Size(140, 34),
+                Location = new Point(510, 20),
                 BackColor = Color.FromArgb(110, 40, 160),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -102,7 +102,7 @@ namespace ClubDeportivo.Forms
             {
                 Text = "Datos del Socio",
                 Location = new Point(15, 128),
-                Size = new Size(635, 148),
+                Size = new Size(660, 148),
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 ForeColor = Color.FromArgb(110, 40, 160)
             };
@@ -123,7 +123,7 @@ namespace ClubDeportivo.Forms
             {
                 Text = "Datos del Pago",
                 Location = new Point(15, 280),
-                Size = new Size(635, 110),
+                Size = new Size(660, 110),
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 ForeColor = Color.FromArgb(110, 40, 160)
             };
@@ -174,7 +174,7 @@ namespace ClubDeportivo.Forms
             lblEstado = new Label
             {
                 Text = "",
-                Location = new Point(20, 355),
+                Location = new Point(20, 455), // Posición del mensaje de error
                 Size = new Size(460, 22),
                 Font = new Font("Segoe UI", 9f),
                 ForeColor = Color.DarkRed
