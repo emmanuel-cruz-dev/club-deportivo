@@ -42,7 +42,7 @@ namespace ClubDeportivo.Forms
         private void ConfigurarFormulario()
         {
             this.Text = "Cobro de Cuota Mensual";
-            this.Size = new Size(620, 480);
+            this.Size = new Size(680, 520);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -63,8 +63,8 @@ namespace ClubDeportivo.Forms
             grpBuscar = new GroupBox
             {
                 Text = "Buscar Socio",
-                Location = new Point(15, 50),
-                Size = new Size(575, 60),
+                Location = new Point(15, 56),
+                Size = new Size(635, 68),
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 ForeColor = Color.FromArgb(110, 40, 160)
             };
@@ -75,7 +75,7 @@ namespace ClubDeportivo.Forms
 
             txtBuscar = new TextBox
             {
-                Location = new Point(190, 21),
+                Location = new Point(250, 21),
                 Size = new Size(260, 24),
                 Font = new Font("Segoe UI", 10f)
             };
@@ -85,8 +85,8 @@ namespace ClubDeportivo.Forms
             btnBuscar = new Button
             {
                 Text = "🔍 Buscar",
-                Size = new Size(100, 26),
-                Location = new Point(460, 20),
+                Size = new Size(100, 36),
+                Location = new Point(520, 20),
                 BackColor = Color.FromArgb(110, 40, 160),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -101,8 +101,8 @@ namespace ClubDeportivo.Forms
             grpSocio = new GroupBox
             {
                 Text = "Datos del Socio",
-                Location = new Point(15, 122),
-                Size = new Size(575, 100),
+                Location = new Point(15, 128),
+                Size = new Size(635, 148),
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 ForeColor = Color.FromArgb(110, 40, 160)
             };
@@ -110,8 +110,8 @@ namespace ClubDeportivo.Forms
 
             AgregarParLabel(grpSocio, "Nombre:", 10, 25, out lblNomSocio, out txtNomSocio, 260);
             AgregarParLabel(grpSocio, "Nº Socio:", 290, 25, out lblNumSocio, out txtNumSocio, 155);
-            AgregarParLabel(grpSocio, "Estado:", 10, 65, out lblEstadoSocio, out txtEstadoSocio, 120);
-            AgregarParLabel(grpSocio, "Venc. cuota:", 200, 65, out lblVencSocio, out txtVencSocio, 155);
+            AgregarParLabel(grpSocio, "Estado:", 10, 82, out lblEstadoSocio, out txtEstadoSocio, 120);
+            AgregarParLabel(grpSocio, "Venc. cuota:", 200, 82, out lblVencSocio, out txtVencSocio, 155);
 
             txtNomSocio.ReadOnly = txtNumSocio.ReadOnly =
             txtEstadoSocio.ReadOnly = txtVencSocio.ReadOnly = true;
@@ -122,8 +122,8 @@ namespace ClubDeportivo.Forms
             grpPago = new GroupBox
             {
                 Text = "Datos del Pago",
-                Location = new Point(15, 232),
-                Size = new Size(575, 110),
+                Location = new Point(15, 280),
+                Size = new Size(635, 110),
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 ForeColor = Color.FromArgb(110, 40, 160)
             };
@@ -186,7 +186,7 @@ namespace ClubDeportivo.Forms
             {
                 Text = "💾 Registrar Pago",
                 Size = new Size(150, 36),
-                Location = new Point(310, 385),
+                Location = new Point(355, 410),
                 BackColor = Color.FromArgb(30, 130, 70),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -201,8 +201,8 @@ namespace ClubDeportivo.Forms
             btnCancelar = new Button
             {
                 Text = "✖ Cancelar",
-                Size = new Size(110, 36),
-                Location = new Point(475, 385),
+                Size = new Size(130, 36),
+                Location = new Point(520, 410),
                 BackColor = Color.FromArgb(190, 50, 50),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -368,7 +368,7 @@ namespace ClubDeportivo.Forms
         public FrmSeleccionarSocio(System.Collections.Generic.List<Socio> socios)
         {
             this.Text = "Seleccionar Socio";
-            this.Size = new Size(520, 320);
+            this.Size = new Size(530, 350);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -384,7 +384,7 @@ namespace ClubDeportivo.Forms
 
             var dgv = new DataGridView
             {
-                Location = new Point(10, 40),
+                Location = new Point(10, 45),
                 Size = new Size(480, 190),
                 ReadOnly = true,
                 AllowUserToAddRows = false,
