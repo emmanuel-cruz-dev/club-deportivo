@@ -52,7 +52,7 @@ namespace ClubDeportivo.Forms
         private void ConfigurarFormulario()
         {
             this.Text = "Comprobante de Alta de Socio";
-            this.Size = new Size(520, 520);
+            this.Size = new Size(520, 560);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
