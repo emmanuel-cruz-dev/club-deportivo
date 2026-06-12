@@ -49,7 +49,7 @@ namespace ClubDeportivo.Forms
         private void ConfigurarFormulario()
         {
             this.Text = "Recibo de Pago de Cuota";
-            this.Size = new Size(520, 500);
+            this.Size = new Size(520, 540);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -136,9 +136,9 @@ namespace ClubDeportivo.Forms
 
             // ── Botones ────────────────────────────────────────────
             btnGuardarPDF = CrearBoton("💾  Guardar PDF",
-                Color.FromArgb(30, 90, 160), new Point(175, 420));
+                Color.FromArgb(30, 90, 160), new Point(165, 430));
             btnCerrar = CrearBoton("✖  Cerrar",
-                Color.FromArgb(190, 50, 50), new Point(340, 420));
+                Color.FromArgb(190, 50, 50), new Point(330, 430));
 
             btnGuardarPDF.Click += BtnGuardarPDF_Click;
             btnCerrar.Click += (s, e) => this.Close();
