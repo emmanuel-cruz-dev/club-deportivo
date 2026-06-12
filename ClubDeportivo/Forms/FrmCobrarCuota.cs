@@ -315,13 +315,11 @@ namespace ClubDeportivo.Forms
 
                 if (resultado.StartsWith("OK"))
                 {
-                    // Intentar obtener el nuevo vencimiento del mensaje del SP (ej: "OK - Nuevo vencimiento: 15/07/2026")
-                    DateTime? nv = null;
-                    if (resultado.Contains(":"))
-                    {
-                        string fechaStr = resultado.Split(':')[1].Trim();
-                        if (DateTime.TryParse(fechaStr, out DateTime d)) nv = d;
-                    }
+                    DateTime baseVenc = _socioActual.FechaVencimientoCuota.HasValue
+                        ? _socioActual.FechaVencimientoCuota.Value
+                        : new DateTime(DateTime.Today.Year, DateTime.Today.Month,
+                              DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month));
+                    DateTime? nv = baseVenc.AddMonths(cantCuotas);
 
                     // Mostrar recibo
                     using var recibo = new FrmReciboSocio(
