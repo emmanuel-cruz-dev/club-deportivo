@@ -175,6 +175,7 @@ namespace ClubDeportivo.Forms
             catch (Exception ex)
             {
                 lblEstado.Text = "Error al generar PDF: " + ex.Message;
+                MessageBox.Show("Error al generar PDF: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lblEstado.ForeColor = Color.DarkRed;
             }
             finally
