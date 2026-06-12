@@ -19,12 +19,12 @@ namespace ClubDeportivo.Helpers
         private static readonly XColor ColorGris       = XColor.FromArgb(120, 120, 120);
 
         // ── Fuentes ───────────────────────────────────────────────────
-        private static readonly XFont FuenteTitulo   = new XFont("Segoe UI", 18, XFontStyleEx.Bold);
-        private static readonly XFont FuenteSubtitulo = new XFont("Segoe UI", 11, XFontStyleEx.Regular);
-        private static readonly XFont FuenteEtiqueta = new XFont("Segoe UI",  9, XFontStyleEx.Bold);
-        private static readonly XFont FuenteValor    = new XFont("Segoe UI",  9, XFontStyleEx.Regular);
-        private static readonly XFont FuentePie      = new XFont("Segoe UI",  8, XFontStyleEx.Italic);
-        private static readonly XFont FuenteNumero   = new XFont("Segoe UI", 10, XFontStyleEx.Bold);
+        private static readonly XFont FuenteTitulo   = new XFont("Arial", 18, XFontStyleEx.Bold);
+        private static readonly XFont FuenteSubtitulo = new XFont("Arial", 11, XFontStyleEx.Regular);
+        private static readonly XFont FuenteEtiqueta = new XFont("Arial",  9, XFontStyleEx.Bold);
+        private static readonly XFont FuenteValor    = new XFont("Arial",  9, XFontStyleEx.Regular);
+        private static readonly XFont FuentePie      = new XFont("Arial",  8, XFontStyleEx.Italic);
+        private static readonly XFont FuenteNumero   = new XFont("Arial", 10, XFontStyleEx.Bold);
 
         // ─────────────────────────────────────────────────────────────
         //  RECIBO DE ALTA DE SOCIO
