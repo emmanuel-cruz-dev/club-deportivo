@@ -28,7 +28,7 @@ namespace ClubDeportivo.Forms
         private void ConfigurarFormulario()
         {
             this.Text = "Consulta de Vencimientos";
-            this.Size = new Size(860, 520);
+            this.Size = new Size(1200, 580);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -74,7 +74,7 @@ namespace ClubDeportivo.Forms
 
             nudDias = new NumericUpDown
             {
-                Location = new Point(280, 11),
+                Location = new Point(350, 11),
                 Size = new Size(60, 24),
                 Minimum = 0,
                 Maximum = 90,
@@ -86,7 +86,7 @@ namespace ClubDeportivo.Forms
             var lblDiasSuf = new Label
             {
                 Text = "días  (0 = solo vencidos)",
-                Location = new Point(348, 15),
+                Location = new Point(410, 15),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 9f),
                 ForeColor = Color.Gray
@@ -96,8 +96,8 @@ namespace ClubDeportivo.Forms
             btnConsultar = new Button
             {
                 Text = "🔍 Consultar",
-                Size = new Size(120, 30),
-                Location = new Point(580, 10),
+                Size = new Size(160, 36),
+                Location = new Point(620, 10),
                 BackColor = Color.FromArgb(180, 100, 10),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -160,8 +160,8 @@ namespace ClubDeportivo.Forms
             btnCerrar = new Button
             {
                 Text = "✖ Cerrar",
-                Size = new Size(100, 32),
-                Location = new Point(735, 456),
+                Size = new Size(140, 36),
+                Location = new Point(1005, 456),
                 BackColor = Color.FromArgb(190, 50, 50),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
