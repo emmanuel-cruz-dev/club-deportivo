@@ -78,18 +78,18 @@ namespace ClubDeportivo.Forms
 
             txtBuscar = new TextBox
             {
-                Location = new Point(230, 16),
+                Location = new Point(300, 16),
                 Size = new Size(320, 28),
                 Font = new Font("Segoe UI", 10f)
             };
             txtBuscar.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) BtnBuscar_Click(s, e); };
             panelBusq.Controls.Add(txtBuscar);
 
-            btnBuscar = CrearBoton("🔍 Buscar", Color.FromArgb(30, 90, 160), new Point(565, 14), 100);
+            btnBuscar = CrearBoton("🔍 Buscar", Color.FromArgb(30, 90, 160), new Point(635, 16), 120);
             btnBuscar.Click += BtnBuscar_Click;
             panelBusq.Controls.Add(btnBuscar);
 
-            btnTodos = CrearBoton("↺ Todos", Color.FromArgb(90, 100, 110), new Point(685, 14), 90);
+            btnTodos = CrearBoton("↺ Todos", Color.FromArgb(90, 100, 110), new Point(765, 16), 110);
             btnTodos.Click += (s, e) => { txtBuscar.Clear(); CargarTodos(); };
             panelBusq.Controls.Add(btnTodos);
 
@@ -241,7 +241,7 @@ namespace ClubDeportivo.Forms
             var btn = new Button
             {
                 Text = texto,
-                Size = new Size(ancho, 30),
+                Size = new Size(ancho, 34),
                 Location = location,
                 BackColor = color,
                 ForeColor = Color.White,
