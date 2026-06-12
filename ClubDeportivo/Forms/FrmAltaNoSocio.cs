@@ -35,7 +35,7 @@ namespace ClubDeportivo.Forms
         private void ConfigurarFormulario()
         {
             this.Text = "Registro de No Socio";
-            this.Size = new Size(660, 460);
+            this.Size = new Size(660, 500);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -56,7 +56,7 @@ namespace ClubDeportivo.Forms
             {
                 Text = "Datos Personales",
                 Location = new Point(15, 50),
-                Size = new Size(620, 310),
+                Size = new Size(616, 310),
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 ForeColor = Color.FromArgb(60, 120, 130)
             };
@@ -78,7 +78,7 @@ namespace ClubDeportivo.Forms
             var btnVer = new Button
             {
                 Text = "Verificar",
-                Size = new Size(72, 24),
+                Size = new Size(72, 34),
                 Location = new Point(223, 100),
                 BackColor = Color.FromArgb(60, 120, 130),
                 ForeColor = Color.White,
@@ -139,9 +139,9 @@ namespace ClubDeportivo.Forms
             this.Controls.Add(lblEstado);
 
             // Botones
-            btnGuardar = Boton("💾  Guardar", Color.FromArgb(30, 130, 70), new Point(395, 393));
-            btnLimpiar = Boton("🔄  Limpiar", Color.FromArgb(90, 100, 110), new Point(515, 393));
-            btnCancelar = Boton("✖  Cancelar", Color.FromArgb(190, 50, 50), new Point(275, 393));
+            btnCancelar = Boton("✖  Cancelar", Color.FromArgb(190, 50, 50), new Point(205, 393));
+            btnGuardar = Boton("💾  Guardar", Color.FromArgb(30, 130, 70), new Point(350, 393));
+            btnLimpiar = Boton("🔄  Limpiar", Color.FromArgb(90, 100, 110), new Point(495, 393));
 
             btnGuardar.Click += BtnGuardar_Click;
             btnLimpiar.Click += (s, e) => Limpiar();
@@ -236,7 +236,7 @@ namespace ClubDeportivo.Forms
         }
         private Button Boton(string texto, Color color, Point loc)
         {
-            var b = new Button { Text = texto, Size = new Size(110, 34), Location = loc, BackColor = color, ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Font = new Font("Segoe UI", 9f, FontStyle.Bold), Cursor = Cursors.Hand };
+            var b = new Button { Text = texto, Size = new Size(134, 34), Location = loc, BackColor = color, ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Font = new Font("Segoe UI", 9f, FontStyle.Bold), Cursor = Cursors.Hand };
             b.FlatAppearance.BorderSize = 0; return b;
         }
 
