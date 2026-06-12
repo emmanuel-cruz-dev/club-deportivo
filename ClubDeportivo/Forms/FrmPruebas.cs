@@ -25,7 +25,7 @@ namespace ClubDeportivo.Forms
         private void ConfigurarFormulario()
         {
             this.Text = "Pruebas del Sistema – Modo Consola";
-            this.Size = new Size(600, 500);
+            this.Size = new Size(730, 620);
             this.StartPosition = FormStartPosition.CenterParent;
             this.BackColor = Color.FromArgb(30, 30, 30);
             this.Font = new Font("Consolas", 10f);
@@ -42,8 +42,8 @@ namespace ClubDeportivo.Forms
 
             rtbConsola = new RichTextBox
             {
-                Location = new Point(15, 55),
-                Size = new Size(555, 330),
+                Location = new Point(15, 60),
+                Size = new Size(665, 430),
                 BackColor = Color.Black,
                 ForeColor = Color.LimeGreen,
                 ReadOnly = true,
@@ -55,8 +55,8 @@ namespace ClubDeportivo.Forms
             btnReejecutar = new Button
             {
                 Text = "↺ Volver a Ejecutar",
-                Size = new Size(150, 32),
-                Location = new Point(265, 405),
+                Size = new Size(260, 36),
+                Location = new Point(265, 505),
                 BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -68,8 +68,8 @@ namespace ClubDeportivo.Forms
             btnCerrar = new Button
             {
                 Text = "✖ Cerrar",
-                Size = new Size(100, 32),
-                Location = new Point(470, 405),
+                Size = new Size(130, 36),
+                Location = new Point(550, 505),
                 BackColor = Color.FromArgb(190, 50, 50),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
